@@ -590,14 +590,14 @@ canopy_factor_file:
     files:
     - 'off'
 slope_grid_file:
-  description: Slope grid file (flat binary file, row-major grid, 4-byte values)
+  description: RiverTools grid file of D8 slopes
   value:
     type: file
     default: default_slope.bin
     files:
     - default_slope.bin
 aspect_grid_file:
-  description: Aspect grid file (flat binary file, row-major grid, 4-byte values)
+  description: RiverTools grid file of D8 aspects
   value:
     type: file
     default: default_aspect.bin
