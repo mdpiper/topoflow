@@ -509,40 +509,38 @@ class channels_component( BMI_base.BMI_component ):
         print 'CHANNELS calling read_input_files()...'
         self.read_input_files()
 
-        # Attempt to define default values for running channels
-        # components in standalone mode. (@mdpiper, 8/19/15)
         try:
             self.P_rain
         except AttributeError:
-            self.P_rain = np.float64(0.0)
+            print 'P_rain is unset'
         try:
             self.SM
         except AttributeError:
-            self.SM = np.float64(0.0)
+            print 'SM is unset'
         try:
             self.ET
         except AttributeError:
-            self.ET = np.float64(0.0)
+            print 'ET is unset'
         try:
             self.GW
         except AttributeError:
-            self.GW = np.float64(0.0)
+            print 'GW is unset'
         try:
             self.IN
         except AttributeError:
-            self.IN = np.float64(0.0)
+            print 'IN is unset'
         try:
             self.MR
         except AttributeError:
-            self.MR = np.float64(0.0)
+            print 'MR is unset'
         try:
             self.rho_H2O
         except AttributeError:
-            self.rho_H2O = np.float64(1000.0)  # met_base.py:525
+            print 'rho_H2O is unset'
         try:
             self.S_free
         except AttributeError:
-            self.S_free = np.zeros(self.slope.shape)  # DEM shape from rti file
+            print 'S_free is unset'
 
         #-----------------------
         # Initialize variables
@@ -551,6 +549,12 @@ class channels_component( BMI_base.BMI_component ):
         self.initialize_d8_vars()  # (depend on D8 flow grid)
         print 'CHANNELS calling initialize_computed_vars()...'
         self.initialize_computed_vars()
+
+        try:
+            self.S_free
+        except AttributeError:
+            print 'S_free is still unset'
+            self.S_free = np.zeros_like(self.S_bed) # DEM shape from rti file
 
         #--------------------------------------------------
         # (5/12/10) I think this is obsolete now.
@@ -1761,9 +1765,14 @@ class channels_component( BMI_base.BMI_component ):
     #-------------------------------------------------------------
     def update_peak_values(self):
 
-        if (self.Q_outlet > self.Q_peak):    
-            self.Q_peak.fill( self.Q_outlet )
-            self.T_peak.fill( self.time_min )      # (time to peak)
+        try:
+            if (self.Q_outlet > self.Q_peak):
+                self.Q_peak.fill( self.Q_outlet )
+                self.T_peak.fill( self.time_min )      # (time to peak)
+        except ValueError:
+            print self.Q_outlet
+            print self.Q_peak
+            raise
         #---------------------------------------
         if (self.u_outlet > self.u_peak):
             self.u_peak.fill( self.u_outlet )
