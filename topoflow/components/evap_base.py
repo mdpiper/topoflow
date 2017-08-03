@@ -254,7 +254,9 @@ class evap_component( BMI_base.BMI_component):
         #******************************************************
         #  Any faster to use np.empty vs. np.zeros ??
         #******************************************************
-        self.ET = np.zeros([self.ny, self.nx], dtype='float64')
+        # self.ET = np.zeros([self.ny, self.nx], dtype='float64')
+        # self.vol_ET = np.zeros([self.ny, self.nx], dtype='float64')
+        self.ET = self.initialize_scalar(0, dtype='float64')
         self.vol_ET = self.initialize_scalar(0, dtype='float64')
         
         #------------------------------------------

@@ -2,9 +2,9 @@
 # Topoflow Config File for: ice_gc2d
 #===============================================================================
 # Input 1
-comp_status         | Enabled             | choice    | Component status [-] {Enabled; Disabled}
-in_directory        | {in_directory}      | string    | Input directory [-]
-out_directory       | {out_directory}     | string    | Output directory [-]
+comp_status         | Enabled             | string    | Component status [-] {Enabled; Disabled}
+in_directory        | .                   | string    | Input directory [-]
+out_directory       | .                   | string    | Output directory [-]
 site_prefix         | {site_prefix}       | string    | File prefix for the study site [-]
 case_prefix         | {case_prefix}       | string    | File prefix for the model scenario [-]
 n_steps             | {n_steps}           | int       | Number of time steps for simulation [-]
@@ -43,30 +43,25 @@ GENERIC_ICE_TOGGLE  | {GENERIC_ICE_TOGGLE}| int       | Start w/ generic ice sur
 ICEFLOW_TOGGLE      | {ICEFLOW_TOGGLE}    | int       | Ice motion by deformation (0 = no, 1 = yes) [-]
 ICESLIDE_TOGGLE     | {ICESLIDE_TOGGLE}   | int       | Ice motion by sliding (0 = no, 1 = yes) [-]
 FREEZE_ON_TOGGLE    | {FREEZE_ON_TOGGLE}  | int       | Basal ice frozen to bed (0 = no, 1 = yes) [-]
-MASS_BALANCE_TOGGLE | {MASS_BALANCE_TOGGLE}| choice    | Climate scenario [-] {ZERO_BALANCE; CONSTANT_ELA; ELA_LOWERING; ELA_TIME_SERIES; EXTERNAL_FUNC; ELA_LOWERING2; BALANCE_FILE; D18O_TIME_SERIES}
-WEST_BC_TOGGLE      | {WEST_BC_TOGGLE}    | choice    | Boundary condition [-] {ICE_FREE_BOUND; ZERO_FLUX_BOUND; CONST_FLUX_BOUND; SURF_ELEV_BOUND; SURF_SLOPE_BOUND}
-EAST_BC_TOGGLE      | {EAST_BC_TOGGLE}    | choice    | Boundary condition [-] {ICE_FREE_BOUND; ZERO_FLUX_BOUND; CONST_FLUX_BOUND; SURF_ELEV_BOUND; SURF_SLOPE_BOUND}
-SOUTH_BC_TOGGLE     | {SOUTH_BC_TOGGLE}   | choice    | Boundary condition [-] {ICE_FREE_BOUND; ZERO_FLUX_BOUND; CONST_FLUX_BOUND; SURF_ELEV_BOUND; SURF_SLOPE_BOUND}
-NORTH_BC_TOGGLE     | {NORTH_BC_TOGGLE}   | choice    | Boundary condition [-] {ICE_FREE_BOUND; ZERO_FLUX_BOUND; CONST_FLUX_BOUND; SURF_ELEV_BOUND; SURF_SLOPE_BOUND}
+MASS_BALANCE_TOGGLE | {MASS_BALANCE_TOGGLE}| string    | Climate scenario [-] {ZERO_BALANCE; CONSTANT_ELA; ELA_LOWERING; ELA_TIME_SERIES; EXTERNAL_FUNC; ELA_LOWERING2; BALANCE_FILE; D18O_TIME_SERIES}
+WEST_BC_TOGGLE      | {WEST_BC_TOGGLE}    | string    | Boundary condition [-] {ICE_FREE_BOUND; ZERO_FLUX_BOUND; CONST_FLUX_BOUND; SURF_ELEV_BOUND; SURF_SLOPE_BOUND}
+EAST_BC_TOGGLE      | {EAST_BC_TOGGLE}    | string    | Boundary condition [-] {ICE_FREE_BOUND; ZERO_FLUX_BOUND; CONST_FLUX_BOUND; SURF_ELEV_BOUND; SURF_SLOPE_BOUND}
+SOUTH_BC_TOGGLE     | {SOUTH_BC_TOGGLE}   | string    | Boundary condition [-] {ICE_FREE_BOUND; ZERO_FLUX_BOUND; CONST_FLUX_BOUND; SURF_ELEV_BOUND; SURF_SLOPE_BOUND}
+NORTH_BC_TOGGLE     | {NORTH_BC_TOGGLE}   | string    | Boundary condition [-] {ICE_FREE_BOUND; ZERO_FLUX_BOUND; CONST_FLUX_BOUND; SURF_ELEV_BOUND; SURF_SLOPE_BOUND}
 #===============================================================================
 # Output
 save_grid_dt        | {save_grid_dt}      | float     | Interval to save grids, years [-]
-SAVE_HI_GRIDS       | {SAVE_HI_GRIDS}     | choice    | Option to save computed hi grids [-] {Yes; No}
+SAVE_HI_GRIDS       | No     | string    | Option to save computed hi grids [-] {Yes; No}
 hi_gs_file          | {hi_gs_file}        | string    | Filename for hi grid stack [-]
-SAVE_ZI_GRIDS       | {SAVE_ZI_GRIDS}     | choice    | Option to save computed zi grids [-] {Yes; No}
+SAVE_ZI_GRIDS       | No     | string    | Option to save computed zi grids [-] {Yes; No}
 zi_gs_file          | {zi_gs_file}        | string    | Filename for zi grid stack [-]
-SAVE_MR_GRIDS       | {SAVE_MR_GRIDS}     | choice    | Option to save computed mr grids [-] {Yes; No}
+SAVE_MR_GRIDS       | No     | string    | Option to save computed mr grids [-] {Yes; No}
 mr_gs_file          | {mr_gs_file}        | string    | Filename for mr grid stack [-]
 save_pixels_dt      | {save_pixels_dt}    | float     | Interval to save time series values, years [-]
 pixel_file          | {pixel_file}        | string    | Filename for monitored pixel file [-]
-SAVE_HI_PIXELS      | {SAVE_HI_PIXELS}    | choice    | Option to save computed hi time series [-] {Yes; No}
+SAVE_HI_PIXELS      | No    | string    | Option to save computed hi time series [-] {Yes; No}
 hi_ts_file          | {hi_ts_file}        | string    | Filename for hi time series [-]
-SAVE_ZI_PIXELS      | {SAVE_ZI_PIXELS}    | choice    | Option to save computed zi time series [-] {Yes; No}
+SAVE_ZI_PIXELS      | No    | string    | Option to save computed zi time series [-] {Yes; No}
 zi_ts_file          | {zi_ts_file}        | string    | Filename for zi time series [-]
-SAVE_MR_PIXELS      | {SAVE_MR_PIXELS}    | choice    | Option to save computed mr time series [-] {Yes; No}
+SAVE_MR_PIXELS      | No    | string    | Option to save computed mr time series [-] {Yes; No}
 mr_ts_file          | {mr_ts_file}        | string    | Filename for mr time series [-]
-#===============================================================================
-# About
-ModelName           | {ModelName}         | String    | Name of the model [-]
-ModelAuthor         | {ModelAuthor}       | String    | Name of the model author [-]
-HTML_HELP_FILE      | {HTML_HELP_FILE}    | String    | Url for html help file [-]

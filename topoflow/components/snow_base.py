@@ -339,7 +339,7 @@ class snow_component( BMI_base.BMI_component ):
         # rho_H2O is for liquid water close to 0 degrees C.
         # Water is denser than snow, so density_ratio > 1.
         #----------------------------------------------------
-        self.density_ratio = (self.rho_H2O / self.rho_snow)
+        # self.density_ratio = (self.rho_H2O / self.rho_snow)  # @mdpiper
                 
         #----------------------------------------------------
         # Initialize the cold content of snowpack (2/21/07)
@@ -349,7 +349,7 @@ class snow_component( BMI_base.BMI_component ):
         ## T_surf   = self.T_surf  # (2/3/13, new framework)
         ## self.Ecc = Initial_Cold_Content(self.h0_snow, T_surf, \
         ##                                 self.rho_snow, self.Cp_snow)
-        
+
     #   initialize_computed_vars()
     #-------------------------------------------------------------------
     def update_meltrate(self):
@@ -426,7 +426,7 @@ class snow_component( BMI_base.BMI_component ):
         #------------------------------------------------
         dh1_swe  = (self.P_snow * self.dt)
         self.h_swe  += dh1_swe
-                
+
         #------------------------------------------------
         # Decrease snow water equivalent due to melting
         # Note that SM depends partly on h_snow.
@@ -471,8 +471,9 @@ class snow_component( BMI_base.BMI_component ):
         # This assumes that update_swe() is called
         # before update_depth().
         #-------------------------------------------
-        h_snow = self.h_swe * self.density_ratio
-        
+        # h_snow = self.h_swe * self.density_ratio  # @mdpiper
+        h_snow = self.h_swe * (self.rho_H2O / self.rho_snow)
+
         #-------------------------------------
         # Decrease snow depth due to melting
         #-------------------------------------   
@@ -496,7 +497,7 @@ class snow_component( BMI_base.BMI_component ):
             self.h_snow.fill( h_snow )     ### (mutable scalar)
         else:
             self.h_snow[:] = h_snow
-        
+
     #   update_depth() 
     #-------------------------------------------------------------------  
     def open_input_files(self):
