@@ -494,7 +494,7 @@ class CMI_component:
 #         # Check data type and rank for input values.
 #         #---------------------------------------------
 #         val_dtype = str( values.dtype )
-#         val_rank  = numpy.rank( values )
+#         val_rank  = numpy.ndim( values )
 #         
 #         if (val_rank != rank):
 #             print '#############################################'

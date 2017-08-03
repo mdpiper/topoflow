@@ -433,7 +433,7 @@ class ncgs_file():
         # Write a grid to existing netCDF file
         #---------------------------------------
         var = self.ncgs_unit.variables[ grid_name ]
-        if (numpy.rank(grid) == 0):
+        if (numpy.ndim(grid) == 0):
             #-----------------------------------------------
             # "grid" is actually a scalar (dynamic typing)
             # so convert it to a grid before saving

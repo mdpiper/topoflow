@@ -347,7 +347,7 @@ class d8_component(d8_base.d8_component):
         #--------------------------------------------------------
         ## nbr_IDs = np.setdiff1d( IDs2, IDs, assume_unique=False )
         ## nbr_IDs = np.setdiff1d( IDs2, IDs )
-        if (np.rank(IDs) == 0):
+        if (np.ndim(IDs) == 0):
             nbr_IDs = np.setdiff1d( IDs2, np.array([IDs]) )
         else:
             nbr_IDs = np.setdiff1d( IDs2, IDs )

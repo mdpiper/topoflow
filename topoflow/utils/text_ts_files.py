@@ -176,7 +176,7 @@ class ts_file():
         #---------------------------------
         # Is variable a grid or scalar ?
         #---------------------------------
-        if (numpy.rank(var) > 0):
+        if (numpy.ndim(var) > 0):
             values = numpy.float32( var[ IDs ] )
         else:
             #-----------------------------------------------------

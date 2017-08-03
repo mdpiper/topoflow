@@ -505,7 +505,7 @@ class ncts_file():
         #---------------------------------
         # Is variable a grid or scalar ?
         #---------------------------------
-        if (numpy.rank(var) > 0):
+        if (numpy.ndim(var) > 0):
             return numpy.float32( var[ IDs ] )
         else:
             #-----------------------------------------------------

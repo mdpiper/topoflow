@@ -353,7 +353,7 @@ class rts_file():
         #---------------------------------------            
         # Convert "grid" from scalar to grid ?
         #---------------------------------------
-        if (numpy.rank(out_grid) == 0):
+        if (numpy.ndim(out_grid) == 0):
             out_grid += numpy.zeros([self.ny, self.nx], dtype=dtype)
 
         #--------------------------------------------
@@ -369,7 +369,7 @@ class rts_file():
 ##        #--------------------------------------------
 ##        # Write grid as binary to existing RTS file
 ##        #--------------------------------------------
-##        if (numpy.rank(grid) == 0):
+##        if (numpy.ndim(grid) == 0):
 ##            #-----------------------------------------------
 ##            # "grid" is actually a scalar (dynamic typing)
 ##            # so convert it to a grid before saving

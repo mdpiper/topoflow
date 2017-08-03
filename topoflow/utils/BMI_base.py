@@ -665,7 +665,7 @@ class BMI_component:
 
         var_name = self.get_var_name( long_var_name )  # (2/20/12)
         
-        exec("rank = np.rank(self." + var_name + ")")
+        exec("rank = np.ndim(self." + var_name + ")")
 
         ### print '######## rank(' + var_name + ') =', rank
         
@@ -2037,7 +2037,7 @@ class BMI_component:
         #   "<", ">", "==", etc.
         # - We can get the data type with ".dtype".
         # - The data type will be "numpy.ndarray".
-        # - numpy.rank(x) will return 0.
+        # - numpy.ndim(x) will return 0.
         #--------------------------------------------------------
         # In order to preserve the reference (mutable scalar),
         # assignments must be done carefully.
@@ -2067,7 +2067,7 @@ class BMI_component:
         #    "<", ">", "==", etc.
         # - We can get the data type with ".dtype".
         # - The data type will be "numpy.ndarray".
-        # - numpy.rank(x) will return 1.
+        # - numpy.ndim(x) will return 1.
         # - They are really 1D arrays with one element.
         #--------------------------------------------------------
         ## return np.array([value], dtype=dtype)
@@ -2080,7 +2080,7 @@ class BMI_component:
         #    "<", ">", "==", etc.
         # - We can get the data type with ".dtype".
         # - The data type will be "numpy.float64".
-        # - numpy.rank(x) will return 0.
+        # - numpy.ndim(x) will return 0.
         #---------------------------------------------------------
         # return np.float64(0)
         
@@ -2093,7 +2093,7 @@ class BMI_component:
         #------------------------------------------------
         # NB!  Case in var_name must be an exact match.
         #-------------------------------------------------      
-        exec("n = np.rank(self." + var_name + ")")       
+        exec("n = np.ndim(self." + var_name + ")")       
         return (n == 0)
     
     #   is_scalar()
@@ -2103,7 +2103,7 @@ class BMI_component:
         #------------------------------------------------
         # NB!  Case in var_name must be an exact match.
         #------------------------------------------------     
-        exec("n = np.rank(self." + var_name + ")")       
+        exec("n = np.ndim(self." + var_name + ")")       
         return (n == 1)
     
     #   is_vector()
@@ -2133,7 +2133,7 @@ class BMI_component:
 ##            print 'ERROR: type(' + var_name + ') =' + type_str
 ##            return False
         #-------------------------------------------------------        
-        exec("n = np.rank(self." + var_name + ")")
+        exec("n = np.ndim(self." + var_name + ")")
         return (n == 2)
 
     #   is_grid()

@@ -823,8 +823,8 @@ class framework():
 ##            comp = self.comp_set[ 'hydro_model' ]
 ##            vals = comp.Q_outlet
 ##            print '########################################################'
-##            print ' After get_values, rank( Q_outlet ) =', numpy.rank(values)
-##            print ' After set_values, rank( Q_outlet ) =', numpy.rank(vals)
+##            print ' After get_values, rank( Q_outlet ) =', numpy.ndim(values)
+##            print ' After set_values, rank( Q_outlet ) =', numpy.ndim(vals)
 ##            print '########################################################'
 
         #---------------------------------------------------
@@ -952,7 +952,7 @@ class framework():
         return
     
 #         dtype = str( values.dtype )
-#         rank  = numpy.rank( values )
+#         rank  = numpy.ndim( values )
 # 
 # 	    #------------------------------------------
 #         # Use dtype and rank to call appropriate,
