@@ -321,7 +321,7 @@ class snow_component( snow_base.snow_component ):
         # rho_H2O is for liquid water close to 0 degrees C.
         # Water is denser than snow, so density_ratio > 1.
         #----------------------------------------------------
-        self.density_ratio = (self.rho_H2O / self.rho_snow)
+        # self.density_ratio = (self.rho_H2O / self.rho_snow)  # @mdpiper
                                                        
         #----------------------------------------------------
         # Initialize the cold content of snowpack (2/21/07)

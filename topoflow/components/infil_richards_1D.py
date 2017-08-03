@@ -337,25 +337,25 @@ class infil_component(infil_base.infil_component):
         self.dz_val    = np.zeros(n_layers, dtype='float64')    #### + dz3
         self.nz_val    = np.zeros(n_layers, dtype='Int16')      #### + nz3
         #--------------------------------------------------------
-        self.Ks_type   = np.zeros(n_layers, dtype='|S100')
-        self.Ki_type   = np.zeros(n_layers, dtype='|S100')
-        self.qs_type   = np.zeros(n_layers, dtype='|S100')
-        self.qi_type   = np.zeros(n_layers, dtype='|S100')
-        self.qr_type   = np.zeros(n_layers, dtype='|S100')
-        self.pB_type   = np.zeros(n_layers, dtype='|S100')    
-        self.pA_type   = np.zeros(n_layers, dtype='|S100')
-        self.lam_type  = np.zeros(n_layers, dtype='|S100')
-        self.c_type    = np.zeros(n_layers, dtype='|S100')
+        self.Ks_val_type   = np.zeros(n_layers, dtype='|S100')
+        self.Ki_val_type   = np.zeros(n_layers, dtype='|S100')
+        self.qs_val_type   = np.zeros(n_layers, dtype='|S100')
+        self.qi_val_type   = np.zeros(n_layers, dtype='|S100')
+        self.qr_val_type   = np.zeros(n_layers, dtype='|S100')
+        self.pB_val_type   = np.zeros(n_layers, dtype='|S100')    
+        self.pA_val_type   = np.zeros(n_layers, dtype='|S100')
+        self.lam_val_type  = np.zeros(n_layers, dtype='|S100')
+        self.c_val_type    = np.zeros(n_layers, dtype='|S100')
         #--------------------------------------------------------        
-        self.Ks_file  = np.zeros(n_layers, dtype='|S100')
-        self.Ki_file  = np.zeros(n_layers, dtype='|S100')
-        self.qs_file  = np.zeros(n_layers, dtype='|S100')
-        self.qi_file  = np.zeros(n_layers, dtype='|S100')
-        self.qr_file  = np.zeros(n_layers, dtype='|S100')
-        self.pB_file  = np.zeros(n_layers, dtype='|S100')
-        self.pA_file  = np.zeros(n_layers, dtype='|S100')
-        self.lam_file = np.zeros(n_layers, dtype='|S100')
-        self.c_file   = np.zeros(n_layers, dtype='|S100')
+        self.Ks_val_file  = np.zeros(n_layers, dtype='|S100')
+        self.Ki_val_file  = np.zeros(n_layers, dtype='|S100')
+        self.qs_val_file  = np.zeros(n_layers, dtype='|S100')
+        self.qi_val_file  = np.zeros(n_layers, dtype='|S100')
+        self.qr_val_file  = np.zeros(n_layers, dtype='|S100')
+        self.pB_val_file  = np.zeros(n_layers, dtype='|S100')
+        self.pA_val_file  = np.zeros(n_layers, dtype='|S100')
+        self.lam_val_file = np.zeros(n_layers, dtype='|S100')
+        self.c_val_file   = np.zeros(n_layers, dtype='|S100')
         #---------------------------------------------------------
         # Note: self.Ks is a Python list.  Initially, each entry
         # is a numpy scalar (type 'np.float64').  However, we

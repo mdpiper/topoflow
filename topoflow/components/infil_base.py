@@ -321,7 +321,7 @@ class infil_component( BMI_base.BMI_component):
         # can later change any list entry to a scalar or grid
         # (type 'np.ndarray'), according to its "Ks_type".
         #---------------------------------------------------------
-        self.Ks  = list(np.zeros(n_layers, dtype='Float64'))
+        self.Ks_val  = list(np.zeros(n_layers, dtype='Float64'))
         self.Ki  = list(np.zeros(n_layers, dtype='Float64'))
         self.qs  = list(np.zeros(n_layers, dtype='Float64'))
         self.qi  = list(np.zeros(n_layers, dtype='Float64'))

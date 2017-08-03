@@ -177,7 +177,7 @@ class met_component( BMI_base.BMI_component ):
         'atmosphere_bottom_air__emissivity',                                 # em_air
         'atmosphere_bottom_air__mass-per-volume_density',                    # rho_air
         'atmosphere_bottom_air__mass-specific_isobaric_heat_capacity',       # Cp_air
-        'atmosphere_bottom_air__neutral_bulk_aerodynamic_conductance',       # Dn [m s-1], neutral
+        'atmosphere_bottom_air__neutral_bulk_heat_aerodynamic_conductance',       # Dn [m s-1], neutral
         'atmosphere_bottom_air__pressure',                                   # p0
         'atmosphere_bottom_air__temperature',                                # T_air
         'atmosphere_bottom_air_flow__bulk_richardson_number',                # Ri [1]
@@ -215,7 +215,6 @@ class met_component( BMI_base.BMI_component ):
         'water__mass-specific_latent_fusion_heat',           # Lf     [J kg-1]
         'water__mass-specific_latent_vaporization_heat',     # Lv     [J kg-1]
         'water-liquid__mass-per-volume_density' ]            # rho_H2O
-        
     #-----------------------------------------
     # These are used only in solar_funcs.py
     # Later, create a Radiation component.
@@ -598,10 +597,13 @@ class met_component( BMI_base.BMI_component ):
         #-------------------------------------------------
         # Write a "initialize_computed_vars()" method?
         #-------------------------------------------------
-        self.P      = self.initialize_scalar(0, dtype='float64')
-        self.P_rain = self.initialize_scalar(0, dtype='float64')
-        self.P_snow = self.initialize_scalar(0, dtype='float64')
-                    
+        # self.P      = self.initialize_scalar(0, dtype='float64')  # @mdpiper
+        # self.P_rain = self.initialize_scalar(0, dtype='float64')
+        # self.P_snow = self.initialize_scalar(0, dtype='float64')
+        self.P = np.zeros((self.ny,self.nx), dtype=float)
+        self.P_rain = np.zeros((self.ny,self.nx), dtype=float)
+        self.P_snow = np.zeros((self.ny,self.nx), dtype=float)
+
         #------------------------------------------------------
         # NB! "Sample steps" must be defined before we return
         #     Check all other process modules.
@@ -627,6 +629,13 @@ class met_component( BMI_base.BMI_component ):
         #-----------------------------------------------
         self.open_input_files()
         self.read_input_files()  # (initializes P)
+
+        # Some output variables aren't defined until update() is called.
+        # Initialize them here, instead. (@mdpiper, 9/8/15)
+        try:
+            self.Ri
+        except AttributeError:
+            self.Ri = np.zeros_like(self.T_air)
         
         ## self.check_input_types()  # (not needed so far)
         
@@ -639,7 +648,7 @@ class met_component( BMI_base.BMI_component ):
         if not(self.PRECIP_ONLY):
             self.open_output_files() 
         self.status = 'initialized'  # (OpenMI 2.0 convention)
-        
+
     #   initialize()
     #-------------------------------------------------------------------
     ## def update(self, dt=-1.0, time_seconds=None):
@@ -1003,7 +1012,10 @@ class met_component( BMI_base.BMI_component ):
         #-------------------------------------------
         # Must use "fill()" to preserve reference.
         #-------------------------------------------
-        self.P_max.fill( np.maximum(self.P_max, self.P.max()) )
+        try:
+            self.P_max.fill( np.maximum(self.P_max, self.P.max()) )
+        except ValueError:
+            self.P_max[:, :] = np.maximum(self.P_max, self.P.max())
         ## self.P_max = np.maximum(self.P_max, self.P.max())
 
         ### print '##### P =', self.P
@@ -1035,6 +1047,7 @@ class met_component( BMI_base.BMI_component ):
         # P_rain is used by channel_base.update_R.
         #-------------------------------------------------
         P_rain = self.P * (self.T_air > 0)
+
         if (np.rank( self.P_rain ) == 0):
             self.P_rain.fill( P_rain )   #### (mutable scalar)
         else:
@@ -1733,6 +1746,7 @@ class met_component( BMI_base.BMI_component ):
         if (self.DEBUG):
             print 'Calling open_input_files()...'
        
+        self.rho_H2O_file = self.in_directory + self.rho_H2O_file
         self.P_file      = self.in_directory + self.P_file
         self.T_air_file  = self.in_directory + self.T_air_file
         self.T_surf_file = self.in_directory + self.T_surf_file
@@ -1748,6 +1762,7 @@ class met_component( BMI_base.BMI_component ):
         self.cloud_factor_file  = self.in_directory + self.cloud_factor_file
         self.canopy_factor_file = self.in_directory + self.canopy_factor_file
 
+        self.rho_H2O_unit      = model_input.open_file(self.rho_H2O_type,      self.rho_H2O_file)
         self.P_unit      = model_input.open_file(self.P_type,      self.P_file)
         self.T_air_unit  = model_input.open_file(self.T_air_type,  self.T_air_file)
         self.T_surf_unit = model_input.open_file(self.T_surf_type, self.T_surf_file)
@@ -1791,6 +1806,9 @@ class met_component( BMI_base.BMI_component ):
         #--------------------------------------------------------
         # NB! read_next() returns None if TYPE arg is "Scalar".
         #--------------------------------------------------------
+        rho_H2O = model_input.read_next(self.rho_H2O_unit, self.rho_H2O_type, rti)
+        if (rho_H2O != None): self.rho_H2O = rho_H2O
+
         P = model_input.read_next(self.P_unit, self.P_type, rti,
                                   factor=self.mmph_to_mps)
 
