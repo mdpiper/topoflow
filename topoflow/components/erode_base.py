@@ -314,8 +314,8 @@ class erosion_component( BMI_base.BMI_component ):
     #   update()
     #-------------------------------------------------------------------
 ##    def update(self, time=None, SILENT=None, REPORT=None):        
-##        if (SILENT == None): SILENT=self.SILENT
-##        if (REPORT == None): REPORT=self.REPORT
+##        if (SILENT is None): SILENT=self.SILENT
+##        if (REPORT is None): REPORT=self.REPORT
 ##
 ##        #### if not(SILENT) and (self.time_index == 0):
 ##        if (self.time_index == 0):
@@ -2060,7 +2060,7 @@ class erosion_component( BMI_base.BMI_component ):
             self.z0_unit.close()   #########
         
 ##        slopes = model_input.read_next(self.slope_unit, self.slope_type, rti)
-##        if (slopes != None): self.slopes = slopes
+##        if (slopes is not None): self.slopes = slopes
 
     #   read_input_files()     
     #-------------------------------------------------------------------  

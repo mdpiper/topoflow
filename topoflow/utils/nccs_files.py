@@ -379,7 +379,7 @@ class nccs_file():
         #-------------------------------------
         if time_index == -1:
             time_index = self.time_index
-        if time == None:
+        if time is None:
             time = np.float64(time_index)
             
         #---------------------------------------

@@ -59,9 +59,9 @@ def topoflow_test( driver_port_name='hydro_model',
     #--------------------
     # Default arguments
     #--------------------
-    if (cfg_prefix == None):
+    if (cfg_prefix is None):
         cfg_prefix = 'June_20_67'
-    if (cfg_directory == None):
+    if (cfg_directory is None):
         cfg_directory = examples_dir + 'Treynor_Iowa/'
     
     #------------------------------
@@ -85,9 +85,9 @@ def erode_test( cfg_prefix=None, cfg_directory=None,
     #--------------------
     # Default arguments
     #--------------------
-    if (cfg_prefix == None):
+    if (cfg_prefix is None):
         cfg_prefix = 'Test'
-    if (cfg_directory == None):
+    if (cfg_directory is None):
         cfg_directory = examples_dir + 'Erode_Test/'
 
     #----------------------
@@ -461,9 +461,9 @@ def bobs_erode_test( driver_port_name='LEM',
     #--------------------
     # Default arguments
     #--------------------
-    if (cfg_prefix == None):
+    if (cfg_prefix is None):
         cfg_prefix = 'Erode_Test_LCP'
-    if (cfg_directory == None):
+    if (cfg_directory is None):
         cfg_directory = os.getenv("HOME") + '/Erode_Tests/Bob_LCP/'
         ## cfg_directory = '~/Erode_Tests/Bob_LCP/'  # (doesn't work)
            

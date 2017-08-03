@@ -708,7 +708,7 @@ class channels_component( BMI_base.BMI_component ):
         # they are always defined for use with new framework.
         ##########################################################
         if (self.MANNING):
-            if (self.nval != None):
+            if (self.nval is not None):
                 self.nval = np.float64( self.nval )  #### 10/9/10, NEED
                 self.nval_min = self.nval.min()
                 self.nval_max = self.nval.max()
@@ -718,7 +718,7 @@ class channels_component( BMI_base.BMI_component ):
             self.z0val_max = np.float64(-1)
             
         if (self.LAW_OF_WALL):
-            if (self.z0val != None):
+            if (self.z0val is not None):
                 self.z0val = np.float64( self.z0val )  #### (10/9/10)
                 self.z0val_min = self.z0val.min()
                 self.z0val_max = self.z0val.max()
@@ -2026,7 +2026,7 @@ class channels_component( BMI_base.BMI_component ):
         # All grids are assumed to have a data type of Float32.
         #-------------------------------------------------------
         slope = model_input.read_next(self.slope_unit, self.slope_type, rti)
-        if (slope != None): self.slope = slope
+        if (slope is not None): self.slope = slope
         
         # If EOF was reached, hopefully numpy's "fromfile"
         # returns None, so that the stored value will be
@@ -2034,23 +2034,23 @@ class channels_component( BMI_base.BMI_component ):
 
         if (self.MANNING):
             nval = model_input.read_next(self.nval_unit, self.nval_type, rti)
-            if (nval != None):
+            if (nval is not None):
                 self.nval     = nval
                 self.nval_min = nval.min()
                 self.nval_max = nval.max()
                 
         if (self.LAW_OF_WALL):
             z0val = model_input.read_next(self.z0val_unit, self.z0val_type, rti)
-            if (z0val != None):
+            if (z0val is not None):
                 self.z0val     = z0val
                 self.z0val_min = z0val.min()
                 self.z0val_max = z0val.max()
         
         width = model_input.read_next(self.width_unit, self.width_type, rti)
-        if (width != None): self.width = width
+        if (width is not None): self.width = width
         
         angle = model_input.read_next(self.angle_unit, self.angle_type, rti)
-        if (angle != None):
+        if (angle is not None):
             #-----------------------------------------------
             # Convert bank angles from degrees to radians. 
             #-----------------------------------------------
@@ -2058,21 +2058,21 @@ class channels_component( BMI_base.BMI_component ):
             ### self.angle = angle  # (before 9/9/14)
 
         sinu = model_input.read_next(self.sinu_unit, self.sinu_type, rti)
-        if (sinu != None): self.sinu = sinu
+        if (sinu is not None): self.sinu = sinu
         
         d0 = model_input.read_next(self.d0_unit, self.d0_type, rti)
-        if (d0 != None): self.d0 = d0
+        if (d0 is not None): self.d0 = d0
 
         ## code = model_input.read_grid(self.code_unit, \
         ##                            self.code_type, rti, dtype='UInt8')
-        ## if (code != None): self.code = code
+        ## if (code is not None): self.code = code
 
     #   read_input_files()     
     #-------------------------------------------------------------------  
     def close_input_files(self):
 
         # if not(self.slope_unit.closed):
-        # if (self.slope_unit != None):
+        # if (self.slope_unit is not None):
 
         #-------------------------------------------------
         # NB!  self.code_unit was never defined as read.
@@ -2568,7 +2568,7 @@ def Manning_Formula(Rh, S, nval):
     #        Note that Q = Ac * u, where Ac is cross-section
     #        area.  For a trapezoid, Ac does not equal w*d.
     #---------------------------------------------------------
-    ##  if (N == None): N = np.float64(0.03)
+    ##  if (N is None): N = np.float64(0.03)
 
     two_thirds = np.float64(2) / 3.0
     
@@ -2610,7 +2610,7 @@ def Law_of_the_Wall(d, Rh, S, z0val):
     #        which is 11.4 km!  So the approximation only
     #        holds within some range of values.
     #--------------------------------------------------------
-##        if (self.z0val == None):    
+##        if (self.z0val is None):    
 ##            self.z0val = np.float64(0.011417)   # (about 1 cm)
 
     #------------------------

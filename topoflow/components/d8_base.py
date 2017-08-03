@@ -269,7 +269,7 @@ class d8_component( BMI_base.BMI_component ):
         self.status     = 'initializing'  # (OpenMI 2.0 convention)
         self.mode       = mode
 
-        if (cfg_file == None):
+        if (cfg_file is None):
 			cfg_extension = self.get_attribute( 'cfg_extension' )
 			filename      = self.site_prefix + cfg_extension
 			cfg_file      = self.in_directory + filename

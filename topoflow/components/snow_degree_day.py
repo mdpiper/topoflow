@@ -337,19 +337,19 @@ class snow_component( snow_base.snow_component ):
         # All grids are assumed to have a data type of Float32.
         #-------------------------------------------------------
         c0 = model_input.read_next(self.c0_unit, self.c0_type, rti)
-        if (c0 != None): self.c0 = c0
+        if (c0 is not None): self.c0 = c0
 
         T0 = model_input.read_next(self.T0_unit, self.T0_type, rti)
-        if (T0 != None): self.T0 = T0
+        if (T0 is not None): self.T0 = T0
 
         rho_snow = model_input.read_next(self.rho_snow_unit, self.rho_snow_type, rti)
-        if (rho_snow != None): self.rho_snow = rho_snow
+        if (rho_snow is not None): self.rho_snow = rho_snow
 
         h0_snow = model_input.read_next(self.h0_snow_unit, self.h0_snow_type, rti)
-        if (h0_snow != None): self.h0_snow = h0_snow
+        if (h0_snow is not None): self.h0_snow = h0_snow
         
         h0_swe = model_input.read_next(self.h0_swe_unit, self.h0_swe_type, rti)
-        if (h0_swe != None): self.h0_swe = h0_swe
+        if (h0_swe is not None): self.h0_swe = h0_swe
         
     #   read_input_files()       
     #-------------------------------------------------------------------  

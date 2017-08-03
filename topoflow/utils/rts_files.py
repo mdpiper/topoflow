@@ -193,7 +193,7 @@ class rts_file():
         # Was "info" argument provided ?
         #---------------------------------
         NEW_INFO = True
-        if (info == None):
+        if (info is None):
             try:
                 info = self.info
                 NEW_INFO = False
@@ -235,7 +235,7 @@ class rts_file():
 ##        #---------------------------------
 ##        # Was "info" argument provided ?
 ##        #---------------------------------
-##        if (info != None):
+##        if (info is not None):
 ##            #------------------------------
 ##            # Save info to a new RTI file
 ##            #------------------------------

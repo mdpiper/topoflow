@@ -1794,7 +1794,7 @@ class met_component( BMI_base.BMI_component ):
         P = model_input.read_next(self.P_unit, self.P_type, rti,
                                   factor=self.mmph_to_mps)
 
-        if (P != None):
+        if (P is not None):
             ## print 'MET: (time,P) =', self.time, P
             
             ## if (self.P_type.lower() != 'scalar'):
@@ -1843,25 +1843,25 @@ class met_component( BMI_base.BMI_component ):
         # the reference to the "mutable scalar". (2/7/13)
         ###############################################################
         T_air = model_input.read_next(self.T_air_unit, self.T_air_type, rti)
-        if (T_air != None): self.T_air = T_air
+        if (T_air is not None): self.T_air = T_air
 
         T_surf = model_input.read_next(self.T_surf_unit, self.T_surf_type, rti)
-        if (T_surf != None): self.T_surf = T_surf
+        if (T_surf is not None): self.T_surf = T_surf
 
         RH = model_input.read_next(self.RH_unit, self.RH_type, rti)
-        if (RH != None): self.RH = RH
+        if (RH is not None): self.RH = RH
 
         p0 = model_input.read_next(self.p0_unit, self.p0_type, rti)
-        if (p0 != None): self.p0 = p0
+        if (p0 is not None): self.p0 = p0
 
         uz = model_input.read_next(self.uz_unit, self.uz_type, rti)
-        if (uz != None): self.uz = uz
+        if (uz is not None): self.uz = uz
 
         z = model_input.read_next(self.z_unit, self.z_type, rti)
-        if (z != None): self.z = z
+        if (z is not None): self.z = z
 
         z0_air = model_input.read_next(self.z0_air_unit, self.z0_air_type, rti)
-        if (z0_air != None): self.z0_air = z0_air
+        if (z0_air is not None): self.z0_air = z0_air
 
         #----------------------------------------------------------------------------
         # These are needed to compute Qn_SW and Qn_LW.
@@ -1870,19 +1870,19 @@ class met_component( BMI_base.BMI_component ):
         #       and "var_name" as args and that uses "exec()".
         #----------------------------------------------------------------------------
         albedo = model_input.read_next(self.albedo_unit, self.albedo_type, rti)
-        if (albedo != None): self.albedo = albedo
+        if (albedo is not None): self.albedo = albedo
 
         em_surf = model_input.read_next(self.em_surf_unit, self.em_surf_type, rti)
-        if (em_surf != None): self.em_surf = em_surf
+        if (em_surf is not None): self.em_surf = em_surf
 
         dust_atten = model_input.read_next(self.dust_atten_unit, self.dust_atten_type, rti)
-        if (dust_atten != None): self.dust_atten = dust_atten
+        if (dust_atten is not None): self.dust_atten = dust_atten
 
         cloud_factor = model_input.read_next(self.cloud_factor_unit, self.cloud_factor_type, rti)
-        if (cloud_factor != None): self.cloud_factor = cloud_factor
+        if (cloud_factor is not None): self.cloud_factor = cloud_factor
 
         canopy_factor = model_input.read_next(self.canopy_factor_unit, self.canopy_factor_type, rti)
-        if (canopy_factor != None): self.canopy_factor = canopy_factor
+        if (canopy_factor is not None): self.canopy_factor = canopy_factor
 
         #-------------------------------------------------------------
         # Compute Qsw_prefactor from cloud_factor and canopy factor.
@@ -1897,10 +1897,10 @@ class met_component( BMI_base.BMI_component ):
         # "update_net_longwave_radiation()", called from update().
         #-------------------------------------------------------------        
 ##        Qn_SW = model_input.read_next(self.Qn_SW_unit, self.Qn_SW_type, rti)
-##        if (Qn_SW != None): self.Qn_SW = Qn_SW
+##        if (Qn_SW is not None): self.Qn_SW = Qn_SW
 ##
 ##        Qn_LW = model_input.read_next(self.Qn_LW_unit, self.Qn_LW_type, rti)
-##        if (Qn_LW != None): self.Qn_LW = Qn_LW
+##        if (Qn_LW is not None): self.Qn_LW = Qn_LW
          
     #   read_input_files()
     #-------------------------------------------------------------------  

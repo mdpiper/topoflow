@@ -3598,7 +3598,7 @@ class erosion_component( erode_base.erosion_component ):
         # and this happens when initialize_d8_vars()
         # calls it.
         #--------------------------------------------------        
-##        if (IDs != None):
+##        if (IDs is not None):
 ##            d8_before = self.d8.d8_grid.flat[ IDs ]
 ##            A_before  = self.d8.A.flat[ IDs ]
 
@@ -3709,7 +3709,7 @@ class erosion_component( erode_base.erosion_component ):
                         SILENT=SILENT, REPORT=REPORT )
         
  
-##        if (IDs != None):
+##        if (IDs is not None):
 ##            d8_after = self.d8.d8_grid.flat[ IDs ]
 ##            A_after  = self.d8.A.flat[ IDs ]
 ##            if (d8_before[0] != d8_after[0]):

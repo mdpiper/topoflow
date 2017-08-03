@@ -1199,7 +1199,7 @@ class d8_component(BMI_base.BMI_component):
         # NOTE! This DEM should have already had the depressions
         #       filled, e.g. by the tool in fill_pits.py.
         #---------------------------------------------------------
-        if (DEM == None):
+        if (DEM is None):
             dp = (self.in_directory + self.site_prefix)
             DEM_file = (dp + '_2D-z0.rtg')
             if not(os.path.exists(DEM_file)):

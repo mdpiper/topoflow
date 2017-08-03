@@ -108,7 +108,7 @@ def read_next(file_unit, var_type, rti, \
     #---------------------------------------------
     # Multiply by a conversion or scale factor ?
     #---------------------------------------------
-    if (factor != 1) and (data != None):
+    if (factor != 1) and (data is not None):
         data = (data * factor)
 
     #-----------------------------------------------------
@@ -116,7 +116,7 @@ def read_next(file_unit, var_type, rti, \
     # but then need to be returned as FLOAT64. (5/17/12)
     # But numpy.float64( None ) = NaN. (5/18/12)
     #-----------------------------------------------------
-    if (data == None):
+    if (data is None):
         return
     else:
         return numpy.float64( data )
@@ -209,7 +209,7 @@ def read_next(file_unit, var_type, rti, \
 ##        raise RuntimeError('No match found for "var_type".')
 ##        return None
 ##    
-##    if (factor != 1) and (data != None):
+##    if (factor != 1) and (data is not None):
 ##        data = (data * factor)
 ##    return data
 ##

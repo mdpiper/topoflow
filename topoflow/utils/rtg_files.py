@@ -122,7 +122,7 @@ class rtg_file():
     #----------------------------------------------------------
     def open_file(self, file_name=None, UPDATE=False):
 
-        if (file_name == None):
+        if (file_name is None):
             #-----------------------------------
             # Re-open a previously opened file
             #-----------------------------------
@@ -178,7 +178,7 @@ class rtg_file():
         # Was "info" argument provided ?
         #---------------------------------
         NEW_INFO = True
-        if (info == None):
+        if (info is None):
             try:
                 info = self.info
                 NEW_INFO = False
@@ -217,7 +217,7 @@ class rtg_file():
             self.ny   = info.nrows           
             ## print 'Stored new info in state.'
             
-##        if (info != None):
+##        if (info is not None):
 ##            #------------------------------
 ##            # Save info to a new RTI file
 ##            #------------------------------
@@ -359,7 +359,7 @@ class rtg_file():
         #--------------------------------------
         # Different ways to specify data type
         #--------------------------------------
-        if (rtg_type != None):
+        if (rtg_type is not None):
             dtype = rti_files.get_numpy_data_type( rtg_type )
 
         #--------------------------------

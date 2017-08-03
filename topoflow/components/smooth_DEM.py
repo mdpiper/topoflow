@@ -413,7 +413,7 @@ class DEM_smoother( BMI_base.BMI_component ):
 ##        #--------------------------------------------
 ##        # Build input filenames from site_prefix ??
 ##        #--------------------------------------------
-####        if (self.DEM_file == None):    
+####        if (self.DEM_file is None):    
 ####            self.DEM_file = prefix + '_DEM.rtg'
 ##
 ##        ####################################
@@ -427,10 +427,10 @@ class DEM_smoother( BMI_base.BMI_component ):
 ##        self.new_flow_file   = None
 ##        ####################################
 ##        
-##        if (self.profile_file == None):    
+##        if (self.profile_file is None):    
 ##            self.profile_file = prefix + '_prof1.txt'
 ##            
-##        if (self.area_file == None):    
+##        if (self.area_file is None):    
 ##            self.area_file = prefix + '_area.rtg'
 ##            #----------------------------------------------------
 ##            # D-infinity areas may not be monotonic increasing,
@@ -438,26 +438,26 @@ class DEM_smoother( BMI_base.BMI_component ):
 ##            #----------------------------------------------------
 ##            ### area_file = prefix + '_dinf-area.rtg'
 ##            
-##        if (self.flow_file == None):    
+##        if (self.flow_file is None):    
 ##            self.flow_file = prefix + '_flow.rtg'
 ##
 ##        #----------------------------------------------
 ##        # Build output filenames from site_prefix ??
 ##        #----------------------------------------------
 ##        new_prefix = (prefix + '2')  #####
-##        if (self.new_DEM_file == None):
+##        if (self.new_DEM_file is None):
 ##            self.new_DEM_file = new_prefix + '_DEM.rtg'
 ##
-##        if (self.new_RTI_file == None):
+##        if (self.new_RTI_file is None):
 ##            self.new_RTI_file = new_prefix + '.rti'
 ##            
-##        if (self.new_slope_file == None):
+##        if (self.new_slope_file is None):
 ##            self.new_slope_file = new_prefix + '_slope.rtg'
 ##
-##        if (self.new_rawDEM_file == None):
+##        if (self.new_rawDEM_file is None):
 ##            self.new_rawDEM_file = new_prefix + '_rawDEM.rtg'
 ##
-##        if (self.new_flow_file == None):
+##        if (self.new_flow_file is None):
 ##            self.new_flow_file = new_prefix + '_flow.rtg'
 ##        
 ##    #   build_filenames()    
@@ -810,7 +810,7 @@ class DEM_smoother( BMI_base.BMI_component ):
         #        lengths along the main channel for use by the
         #        best_slope_area_curve_fit routine.
         #--------------------------------------------------------  
-        if (n_header == None):
+        if (n_header is None):
             n_header = numpy.int16(6)
 
         #------------------------------
@@ -950,7 +950,7 @@ class DEM_smoother( BMI_base.BMI_component ):
         #---------------------------------------------
         # Set weights for the curve fitting function
         #---------------------------------------------
-        if (weights == None):
+        if (weights is None):
             #-----------------------------------------------
             # Use equal weights; gives smaller stderr
             # but further from computed p value. A
@@ -1039,7 +1039,7 @@ class DEM_smoother( BMI_base.BMI_component ):
             #------------------------------------------------
             weights = A
             return numpy.sqrt( numpy.sum( weights*(z - zf)**2 ) / nz)
-            # if (weights == None):
+            # if (weights is None):
             #     return numpy.sqrt( numpy.sum( (z - zf)**2 ) / nz)
             # else: 
             #     return numpy.sqrt( numpy.sum( weights*(z - zf)**2 ) / nz)

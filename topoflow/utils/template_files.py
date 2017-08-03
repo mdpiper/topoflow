@@ -19,12 +19,12 @@ def get_replacements( var_names=None, values=None, method='RE'):
     #-----------------------
     # Defaults for testing
     #-----------------------
-    if (var_names == None):
+    if (var_names is None):
         if (method == 'RE'):
             var_names=['${var1}','${var2}']
         else:
             var_names=['var1','var2']
-    if (values == None):
+    if (values is None):
         values = [3.141, 2.718]
         
     #---------------------------------------------
@@ -54,7 +54,7 @@ def replace( cfg_template_file, new_cfg_file, dictionary=None,
     RE_METHOD     = (method == 'RE')
     STRING_METHOD = not(RE_METHOD)
     
-    if (dictionary == None):
+    if (dictionary is None):
         dictionary = get_replacements()
         
     #---------------------------------

@@ -405,7 +405,7 @@ def string(*args, **keys):
     FORMATTED = keys.has_key('format')
     if (FORMATTED):
         format = keys['format']
-        if (format == None): FORMATTED=False
+        if (format is None): FORMATTED=False
         
 ##    print 'format =', format
 ##    print 'type(format) =', type(format)   ########

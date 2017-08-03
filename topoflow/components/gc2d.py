@@ -758,19 +758,19 @@ def mass_balance( Zi, t,
     #  to the arguments of the update() function it will always
     #  use the original values in Toggles and Parameters.
     #------------------------------------------------------------
-    if (MASS_BALANCE_TOGGLE == None):
+    if (MASS_BALANCE_TOGGLE is None):
         MASS_BALANCE_TOGGLE = Toggles.MASS_BALANCE_TOGGLE
-    if (initELA == None):
+    if (initELA is None):
         initELA = Parameters.initELA
-    if (ELAStepSize == None):
+    if (ELAStepSize is None):
         ELAStepSize = Parameters.ELAStepSize
-    if (ELAStepInterval == None):
+    if (ELAStepInterval is None):
         ELAStepInterval = Parameters.ELAStepInterval
-    if (tmin == None):
+    if (tmin is None):
         tmin = Parameters.tmin
-    if (gradBz == None):
+    if (gradBz is None):
         gradBz = Parameters.gradBz
-    if (maxBz == None):
+    if (maxBz is None):
         maxBz = Parameters.maxBz
 
 ##    print 'MASS_BALANCE_TOGGLE =', MASS_BALANCE_TOGGLE
@@ -1175,17 +1175,17 @@ def update( t , H , Zb , dx , dy , meltrate, conserveIce,
     #  to the arguments of the update() function will always
     #  use the original values in Toggles and Parameters.
     #--------------------------------------------------------------
-    if (COMPRESS_TOGGLE == None):
+    if (COMPRESS_TOGGLE is None):
         COMPRESS_TOGGLE = Toggles.COMPRESS_TOGGLE
-    if (ICEFLOW_TOGGLE == None):
+    if (ICEFLOW_TOGGLE is None):
         ICEFLOW_TOGGLE = Toggles.ICEFLOW_TOGGLE
-    if (ICESLIDE_TOGGLE == None):
+    if (ICESLIDE_TOGGLE is None):
         ICESLIDE_TOGGLE = Toggles.ICESLIDE_TOGGLE
-    if (VARIABLE_DT_TOGGLE == None):
+    if (VARIABLE_DT_TOGGLE is None):
         VARIABLE_DT_TOGGLE = Toggles.VARIABLE_DT_TOGGLE
-    if (dtDefault == None):
+    if (dtDefault is None):
         dtDefault = Parameters.dtDefault
-    if (dtMax == None):
+    if (dtMax is None):
         dtMax = Parameters.dtMax
         
     #-----------------------------------------------------------

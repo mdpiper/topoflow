@@ -372,16 +372,16 @@ class evap_component(evap_base.evap_component):
         # All grids are assumed to have a data type of Float32.
         #-------------------------------------------------------
         ## alpha = model_input.read_next(self.alpha_unit, self.alpha_type, rti)
-        ## if (alpha != None): self.alpha = alpha
+        ## if (alpha is not None): self.alpha = alpha
 
         K_soil = model_input.read_next(self.K_soil_unit, self.K_soil_type, rti)
-        if (K_soil != None): self.K_soil = K_soil
+        if (K_soil is not None): self.K_soil = K_soil
 
         soil_x = model_input.read_next(self.soil_x_unit, self.soil_x_type, rti)
-        if (soil_x != None): self.soil_x = soil_x
+        if (soil_x is not None): self.soil_x = soil_x
 
         T_soil_x = model_input.read_next(self.T_soil_x_unit, self.T_soil_x_type, rti)
-        if (T_soil_x != None): self.T_soil_x = T_soil_x
+        if (T_soil_x is not None): self.T_soil_x = T_soil_x
         
     #   read_input_files()        
     #-------------------------------------------------------------------  
