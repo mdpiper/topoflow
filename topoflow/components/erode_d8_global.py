@@ -256,8 +256,8 @@ class erosion_component( erode_base.erosion_component ):
     ## def update(self, dt=-1.0, time_seconds=None):
     def update(self, dt=-1.0):
 
-##        if (SILENT == None): SILENT=self.SILENT
-##        if (REPORT == None): REPORT=self.REPORT
+##        if (SILENT is None): SILENT=self.SILENT
+##        if (REPORT is None): REPORT=self.REPORT
 
         SILENT = self.SILENT
         REPORT = self.REPORT

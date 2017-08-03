@@ -487,12 +487,12 @@ class snow_component( BMI_base.BMI_component ):
 #         print 'type(self.h_swe) =', type(self.h_swe)
 #         print 'type(h_snow) =', type(h_snow)
 #         print 'type(self.SM) =', type(self.SM)
-#         print 'rank(self.SM) =', np.rank(self.SM)
+#         print 'rank(self.SM) =', np.ndim(self.SM)
         
         #----------------------------------             
         # Save updated snow depth in self
         #----------------------------------
-        if (np.rank( self.h_snow ) == 0):
+        if (np.ndim( self.h_snow ) == 0):
             h_snow = np.float64( h_snow )  ### (from 0D array to scalar)
             self.h_snow.fill( h_snow )     ### (mutable scalar)
         else:

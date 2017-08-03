@@ -19,12 +19,12 @@ def get_replacement_dictionary( var_names=None, values=None,
     #-----------------------
     # Defaults for testing
     #-----------------------
-    if (var_names == None):
+    if (var_names is None):
         if (method == 'RE'):
             var_names=['${var1}','${var2}']
         else:
             var_names=['var1','var2']
-    if (values == None):
+    if (values is None):
         values = [3.141, 2.718]
         
     #-------------------------------------
@@ -37,7 +37,7 @@ def get_replacement_dictionary( var_names=None, values=None,
 #-------------------------------------------------------------------------
 def make_test_template( template_file=None ):
 
-    if (template_file == None):
+    if (template_file is None):
         template_file='Model_config_file_template.cfg.in'
         
     template_unit = open( template_file, 'w' )

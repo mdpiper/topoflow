@@ -177,7 +177,7 @@ def get_grid_size( file_name ):
 #---------------------------------------------------------------------
 def byte_swap_needed( file_name, info=None ):
 
-    if (info == None):
+    if (info is None):
         RTI_file = get_rti_file_name( file_name )
         info = read_info( RTI_file )
         
@@ -282,7 +282,7 @@ def read_info(file_name, SILENT=False, REPORT=False):
     #        Type and byte order are converted to upper case.
     #----------------------------------------------------------
     RTI_file = try_to_find_rti_file( file_name )
-    if (RTI_file == None):
+    if (RTI_file is None):
         # Message already prints before this.
         # if not(SILENT): print 'ERROR: Unable to find RTI file.'
         return None
@@ -402,24 +402,24 @@ def make_info(grid_file=None,
               #----------------------------
               dtype=None, SILENT=True):
 
-    if (grid_file == None):
+    if (grid_file is None):
         print '---------------------------------------------------'
         print 'ERROR: make_info() requires "grid_file" argument.'
         print '---------------------------------------------------'
         print ' '
         return None
 
-    if (ncols == None) or (nrows == None) or \
-       (xres == None)  or (yres == None):
+    if (ncols is None) or (nrows is None) or \
+       (xres is None)  or (yres is None):
         RTI_file = try_to_find_rti_file( grid_file )
-        if (RTI_file != None):
+        if (RTI_file is not None):
             print 'Copying info from RTI_file: '
             print '    ' + RTI_File
             info = read_info( grid_file )
-            if (ncols == None): ncols = info.ncols
-            if (nrows == None): nrows = info.nrows
-            if (xres  == None): xres  = info.xres
-            if (yres  == None): yres  = info.yres
+            if (ncols is None): ncols = info.ncols
+            if (nrows is None): nrows = info.nrows
+            if (xres  is None): xres  = info.xres
+            if (yres  is None): yres  = info.yres
         else:
             print '----------------------------------------------'
             print 'ERROR: "make_info()" requires the arguments:'
@@ -432,13 +432,13 @@ def make_info(grid_file=None,
     #-------------------------------------------------
     # Was data type specified with "dtype" keyword ?
     #-------------------------------------------------
-    if (dtype != None):
+    if (dtype is not None):
         data_type = get_rti_data_type( dtype )
         
     #---------------------------------------------------------
     # Compute x_east_edge and y_north_edge from other info ?
     #---------------------------------------------------------
-    if (x_east_edge == None):
+    if (x_east_edge is None):
         if (pixel_geom == 1):
             xsize = (ncols * xres)
         else:
@@ -446,7 +446,7 @@ def make_info(grid_file=None,
             xsize    = (ncols * xres_deg)  
         x_east_edge  = (x_west_edge + xsize)
     #--------------------------------------------------------------------------
-    if (y_north_edge == None):
+    if (y_north_edge is None):
         if (pixel_geom == 1):
             ysize = (nrows * yres)
         else:

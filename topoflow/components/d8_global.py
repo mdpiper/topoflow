@@ -170,7 +170,7 @@ class d8_component( d8_base.d8_component ):
                            SILENT=True, REPORT=False):
         
         #--------------------------------------------------------------
-        # Notes: If (z != None), then update D8 codes only for the
+        # Notes: If (z is not None), then update D8 codes only for the
         #        pixels with those IDs. (3/2/10)
         #        Should IDs and z be set directly into d8's state
         #        instead of being passed as args?
@@ -204,7 +204,7 @@ class d8_component( d8_base.d8_component ):
         # Note: DEM may be passed to this function but may also
         # have been read from DEM_file in initialize_computed_vars().
         #--------------------------------------------------------------
-        if (DEM == None):
+        if (DEM is None):
             DEM = self.DEM
 
         #------------------------------
@@ -815,14 +815,14 @@ class d8_component( d8_base.d8_component ):
         #-------------------------------------
         # Some flow directions may not occur
         #-------------------------------------
-        self.p1_OK = (self.p1 != None)
-        self.p2_OK = (self.p2 != None)
-        self.p3_OK = (self.p3 != None)
-        self.p4_OK = (self.p4 != None)
-        self.p5_OK = (self.p5 != None)
-        self.p6_OK = (self.p6 != None)
-        self.p7_OK = (self.p7 != None)
-        self.p8_OK = (self.p8 != None)
+        self.p1_OK = (self.p1 is not None)
+        self.p2_OK = (self.p2 is not None)
+        self.p3_OK = (self.p3 is not None)
+        self.p4_OK = (self.p4 is not None)
+        self.p5_OK = (self.p5 is not None)
+        self.p6_OK = (self.p6 is not None)
+        self.p7_OK = (self.p7 is not None)
+        self.p8_OK = (self.p8 is not None)
 
     #   update_flow_to_IDs()
     #-------------------------------------------------------------------

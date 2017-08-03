@@ -685,7 +685,7 @@ class HIS_component(BMI_base.BMI_component):
 ##        #------------------------------------------------------- 
 ##        for k in xrange(self.n_layers):
 ##            Ks = model_input.read_next(self.Ks_unit[k], self.Ks_type[k], rti)
-##            if (Ks != None): self.Ks[k] = Ks
+##            if (Ks is not None): self.Ks[k] = Ks
           
     #   read_input_files()       
     #-------------------------------------------------------------------  

@@ -395,7 +395,7 @@ class BMI_component:
         self.grid_info_file = (self.in_directory +
                                self.site_prefix + '.rti')
         info = rti_files.read_info( self.grid_info_file )
-        if (info == None):
+        if (info is None):
             #-------------------------------------------------------
             # The RTI file is usually in "in_directory" and
             # uses "site_prefix", but when it needs to be
@@ -665,7 +665,7 @@ class BMI_component:
 
         var_name = self.get_var_name( long_var_name )  # (2/20/12)
         
-        exec("rank = np.rank(self." + var_name + ")")
+        exec("rank = np.ndim(self." + var_name + ")")
 
         ### print '######## rank(' + var_name + ') =', rank
         
@@ -1123,7 +1123,7 @@ class BMI_component:
         # All components, including this one (the driver)
         # will look in the CWD for their CFG file.
         #--------------------------------------------------
-        if (cfg_directory != None):
+        if (cfg_directory is not None):
             os.chdir( cfg_directory )
         self.cfg_prefix = cfg_prefix
 
@@ -1394,7 +1394,7 @@ class BMI_component:
         # You can provide this value to make sure that the
         # minuts, hours, days, etc. are computed correctly.
         #------------------------------------------------------
-        if (seconds == None):    
+        if (seconds is None):    
             finish  = time.time()
             seconds = (finish - self.start_time)
 
@@ -1735,7 +1735,7 @@ class BMI_component:
     def initialize_config_vars(self):
    
         # print '## At start of initialize_config_vars(): cfg_prefix =', self.cfg_prefix
-        if (self.cfg_prefix == None):
+        if (self.cfg_prefix is None):
                 self.cfg_prefix = self.case_prefix  # (10/25/11)
              
         #---------------------------------------
@@ -1765,7 +1765,7 @@ class BMI_component:
         #---------------------------------------------
         # if (self.mode == "driver"):
         #    if (hasattr(self, 'in_directory')):
-        #        if (self.in_directory != None):
+        #        if (self.in_directory is not None):
         #            os.chdir( self.in_directory )
 
         #--------------------------------------------------
@@ -1775,7 +1775,7 @@ class BMI_component:
         #--------------------------------------------------
         # if (self.mode == "driver"):
         #     if (hasattr(self, 'out_directory')):
-        #         if (self.out_directory != None):
+        #         if (self.out_directory is not None):
         #             os.chdir( self.out_directory )
 
         #-------------------------------------------------------
@@ -1955,17 +1955,17 @@ class BMI_component:
         #----------------------------------------
         # Note:  Defaults are set in __init_().
         #----------------------------------------
-        if (self.in_directory == None):
+        if (self.in_directory is None):
             self.in_directory = os.getcwd() + os.sep
             ## self.in_directory = self.cfg_directory
         #-----------------------------------------------
-        if (self.out_directory == None):
+        if (self.out_directory is None):
             self.out_directory = os.getcwd() + os.sep
         #-----------------------------------------------
-        if (self.site_prefix == None):
+        if (self.site_prefix is None):
             self.site_prefix = self.cfg_prefix
         #-----------------------------------------------
-        if (self.case_prefix == None):
+        if (self.case_prefix is None):
             self.case_prefix = self.cfg_prefix
 
 ##        print 'self.in_directory  =', self.in_directory
@@ -1980,7 +1980,7 @@ class BMI_component:
         # package paths.  So to address these issues, we expand
         # the "." to the full CFG_file directory. (9/21/14)
         #------------------------------------------------------------
-        if (self.cfg_file != None):
+        if (self.cfg_file is not None):
             cfg_directory = os.path.dirname(os.path.realpath(self.cfg_file))
             ## print 'cfg_directory =', cfg_directory
             self.cfg_directory = cfg_directory
@@ -2037,7 +2037,7 @@ class BMI_component:
         #   "<", ">", "==", etc.
         # - We can get the data type with ".dtype".
         # - The data type will be "numpy.ndarray".
-        # - numpy.rank(x) will return 0.
+        # - numpy.ndim(x) will return 0.
         #--------------------------------------------------------
         # In order to preserve the reference (mutable scalar),
         # assignments must be done carefully.
@@ -2067,7 +2067,7 @@ class BMI_component:
         #    "<", ">", "==", etc.
         # - We can get the data type with ".dtype".
         # - The data type will be "numpy.ndarray".
-        # - numpy.rank(x) will return 1.
+        # - numpy.ndim(x) will return 1.
         # - They are really 1D arrays with one element.
         #--------------------------------------------------------
         ## return np.array([value], dtype=dtype)
@@ -2080,7 +2080,7 @@ class BMI_component:
         #    "<", ">", "==", etc.
         # - We can get the data type with ".dtype".
         # - The data type will be "numpy.float64".
-        # - numpy.rank(x) will return 0.
+        # - numpy.ndim(x) will return 0.
         #---------------------------------------------------------
         # return np.float64(0)
         
@@ -2093,7 +2093,7 @@ class BMI_component:
         #------------------------------------------------
         # NB!  Case in var_name must be an exact match.
         #-------------------------------------------------      
-        exec("n = np.rank(self." + var_name + ")")       
+        exec("n = np.ndim(self." + var_name + ")")       
         return (n == 0)
     
     #   is_scalar()
@@ -2103,7 +2103,7 @@ class BMI_component:
         #------------------------------------------------
         # NB!  Case in var_name must be an exact match.
         #------------------------------------------------     
-        exec("n = np.rank(self." + var_name + ")")       
+        exec("n = np.ndim(self." + var_name + ")")       
         return (n == 1)
     
     #   is_vector()
@@ -2133,7 +2133,7 @@ class BMI_component:
 ##            print 'ERROR: type(' + var_name + ') =' + type_str
 ##            return False
         #-------------------------------------------------------        
-        exec("n = np.rank(self." + var_name + ")")
+        exec("n = np.ndim(self." + var_name + ")")
         return (n == 2)
 
     #   is_grid()

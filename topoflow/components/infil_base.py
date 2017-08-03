@@ -814,22 +814,22 @@ class infil_component( BMI_base.BMI_component):
         #------------------------------------------------------- 
         for k in xrange(self.n_layers):
             Ks = model_input.read_next(self.Ks_unit[k], self.Ks_type[k], rti)
-            if (Ks != None): self.Ks[k] = Ks
+            if (Ks is not None): self.Ks[k] = Ks
 
             Ki = model_input.read_next(self.Ki_unit[k], self.Ki_type[k], rti)
-            if (Ki != None): self.Ki[k] = Ki
+            if (Ki is not None): self.Ki[k] = Ki
 
             qs = model_input.read_next(self.qs_unit[k], self.qs_type[k], rti)
-            if (qs != None): self.qs[k] = qs
+            if (qs is not None): self.qs[k] = qs
 
             qi = model_input.read_next(self.qi_unit[k], self.qi_type[k], rti)
-            if (qi != None): self.qi[k] = qi
+            if (qi is not None): self.qi[k] = qi
             
             G  = model_input.read_next(self.G_unit[k], self.G_type[k], rti)
-            if (G != None): self.G[k] = G
+            if (G is not None): self.G[k] = G
 
             gam = model_input.read_next(self.gam_unit[k], self.gam_type[k], rti)
-            if (gam != None): self.gam[k] = gam
+            if (gam is not None): self.gam[k] = gam
           
     #   read_input_files()       
     #-------------------------------------------------------------------  

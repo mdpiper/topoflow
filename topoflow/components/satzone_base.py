@@ -187,7 +187,7 @@ class satzone_component( BMI_base.BMI_component ):
             elev = model_input.read_next(self.elev_unit, self.elev_type,
                                       self.rti, dtype=DEM_type_str)
             model_input.close_file(self.elev_unit)
-            if (elev != None): self.elev = elev
+            if (elev is not None): self.elev = elev
 
             #---------------------------------------------------
             # Initialize GW, vol_GW, h_table, h_last, y, etc.
@@ -1381,37 +1381,37 @@ class satzone_component( BMI_base.BMI_component ):
         # All grids are assumed to have a data type of Float32.
         #-------------------------------------------------------
         elev = model_input.read_next(self.elev_unit, self.elev_type, rti)
-        if (elev != None): self.elev = elev
+        if (elev is not None): self.elev = elev
 
         h0_table = model_input.read_next(self.h0_table_unit, self.h0_table_type, rti)
-        if (h0_table != None): self.h0_table = h0_table
+        if (h0_table is not None): self.h0_table = h0_table
 
         # This is not used yet. ####################
 ##        d_bedrock = model_input.read_next(self.d_bedrock_unit, self.d_bedrock_type, rti)
-##        if (d_bedrock != None): self.d_bedrock = d_bedrock
+##        if (d_bedrock is not None): self.d_bedrock = d_bedrock
 
         #-----------------------------------------------------
         # These are computed variables, not input variables,
         # although we may read their initial value from file
         #-----------------------------------------------------
 ##        d_freeze = model_input.read_next(self.d_freeze_unit, self.d_freeze_type, rti)
-##        if (d_freeze != None): self.d_freeze = d_freeze
+##        if (d_freeze is not None): self.d_freeze = d_freeze
 ##
 ##        d_thaw = model_input.read_next(self.d_thaw_unit, self.d_thaw_type, rti)
-##        if (d_thaw != None): self.d_thaw = d_thaw
+##        if (d_thaw is not None): self.d_thaw = d_thaw
         
         #----------------------------------------------------
         # These are used by the new, more general GW method
         #----------------------------------------------------
         for j in xrange(self.n_layers):
             Ks = model_input.read_next(self.Ks_unit[j], self.Ks_type[j], rti)
-            if (Ks != None): self.Ks[j] = Ks
+            if (Ks is not None): self.Ks[j] = Ks
 
             qs = model_input.read_next(self.qs_unit[j], self.qs_type[j], rti)
-            if (qs != None): self.qs[j] = qs
+            if (qs is not None): self.qs[j] = qs
 
             th = model_input.read_next(self.th_unit[j], self.th_type[j], rti)
-            if (th != None): self.th[j] = th            
+            if (th is not None): self.th[j] = th            
         
     #   read_input_files()        
     #-------------------------------------------------------------------  

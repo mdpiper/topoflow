@@ -504,7 +504,7 @@ class topoflow_driver( BMI_base.BMI_component ):
         # Open the logfile ?      *** (Append or overwrite ??)
         #---------------------
         if (self.WRITE_LOG):
-            if (self.log_file == None):
+            if (self.log_file is None):
                 self.log_file = (self.case_prefix + '_LOG.txt')
             print 'Opening log file:'
             print '    log_file =', self.log_file

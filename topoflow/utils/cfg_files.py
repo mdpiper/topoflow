@@ -72,7 +72,7 @@ def get_yes_words():
 def read_words(file_unit, word_delim=None):
 
     #----------------------------------------------------
-    # Note: If (word_delim == None), then the "split()"
+    # Note: If (word_delim is None), then the "split()"
     #       method for strings will use any whitespace
     #       string as a separator.
     #----------------------------------------------------
@@ -103,7 +103,7 @@ def read_list(file_unit, dtype_list=None, dtype='string',
     #----------------------------------------------------
 ##    if (dtype_list == []):
 ##    if (len(dtype_list) == 0):
-    if (dtype_list == None):
+    if (dtype_list is None):
         dtype_list = []
         for k in xrange(len(words)):
             dtype_list.append( dtype.lower() )
@@ -179,7 +179,7 @@ def read_words_after_key(file_unit, key_delim=':',
                          word_delim=None, n_words=None):
 
     #----------------------------------------------------
-    # Note: If (word_delim == None), then the "split()"
+    # Note: If (word_delim is None), then the "split()"
     #       method for strings will use any whitespace
     #       string as a separator.
     #----------------------------------------------------
@@ -193,7 +193,7 @@ def read_words_after_key(file_unit, key_delim=':',
     #-----------------------------------
     # Option to check for enough words
     #-----------------------------------
-    if (n_words == None):
+    if (n_words is None):
         return words
     if (len(words) < n_words):
         print 'ERROR in read_words_after_key():'
@@ -226,7 +226,7 @@ def read_list_after_key(file_unit, dtype_list=None, dtype='string',
     #----------------------------------------------------
 ##    if (dtype_list == []):
 ##    if (len(dtype_list) == 0):
-    if (dtype_list == None):
+    if (dtype_list is None):
         dtype_list = []
         for k in xrange(len(words)):
             dtype_list.append( dtype.lower() )

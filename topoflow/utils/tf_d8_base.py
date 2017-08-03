@@ -153,12 +153,12 @@ class d8_component(BMI_base.BMI_component):
         #       initialize_config_vars(), then they will
         #       default to CWD and cfg_prefix.
         #------------------------------------------------------
-        if (cfg_file == None):
-			cfg_extension = self.get_attribute( 'cfg_extension' )
-			filename      = self.site_prefix + cfg_extension
-			cfg_file      = self.in_directory + filename
-			## self.cfg_file   = os.path.join( os.getcwd(), filename )
-			## self.cfg_prefix = self.site_prefix
+        if (cfg_file is None):
+            cfg_extension = self.get_attribute( 'cfg_extension' )
+            filename      = self.site_prefix + cfg_extension
+            cfg_file      = self.in_directory + filename
+            ## self.cfg_file   = os.path.join( os.getcwd(), filename )
+            ## self.cfg_prefix = self.site_prefix
         self.cfg_file = cfg_file
 
         #-----------------------------------------------
@@ -518,14 +518,14 @@ class d8_component(BMI_base.BMI_component):
         #-------------------------------------
         # Some flow directions may not occur
         #-------------------------------------
-        self.p1_OK = (self.p1 != None)
-        self.p2_OK = (self.p2 != None)
-        self.p3_OK = (self.p3 != None)
-        self.p4_OK = (self.p4 != None)
-        self.p5_OK = (self.p5 != None)
-        self.p6_OK = (self.p6 != None)
-        self.p7_OK = (self.p7 != None)
-        self.p8_OK = (self.p8 != None)
+        self.p1_OK = (self.p1 is not None)
+        self.p2_OK = (self.p2 is not None)
+        self.p3_OK = (self.p3 is not None)
+        self.p4_OK = (self.p4 is not None)
+        self.p5_OK = (self.p5 is not None)
+        self.p6_OK = (self.p6 is not None)
+        self.p7_OK = (self.p7 is not None)
+        self.p8_OK = (self.p8 is not None)
 
     #   get_flow_to_IDs()
     #-------------------------------------------------------------------

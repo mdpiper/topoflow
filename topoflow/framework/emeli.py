@@ -823,8 +823,8 @@ class framework():
 ##            comp = self.comp_set[ 'hydro_model' ]
 ##            vals = comp.Q_outlet
 ##            print '########################################################'
-##            print ' After get_values, rank( Q_outlet ) =', numpy.rank(values)
-##            print ' After set_values, rank( Q_outlet ) =', numpy.rank(vals)
+##            print ' After get_values, rank( Q_outlet ) =', numpy.ndim(values)
+##            print ' After set_values, rank( Q_outlet ) =', numpy.ndim(vals)
 ##            print '########################################################'
 
         #---------------------------------------------------
@@ -952,7 +952,7 @@ class framework():
         return
     
 #         dtype = str( values.dtype )
-#         rank  = numpy.rank( values )
+#         rank  = numpy.ndim( values )
 # 
 # 	    #------------------------------------------
 #         # Use dtype and rank to call appropriate,
@@ -1060,7 +1060,7 @@ class framework():
 ##            return
            
         bmi = self.comp_set[ port_name ]
-        if (cfg_file == None):
+        if (cfg_file is None):
             cfg_file = self.get_cfg_filename( bmi )
         bmi.initialize( cfg_file=cfg_file, mode=mode )
             
@@ -1255,10 +1255,10 @@ class framework():
 #         #-------------------
 #         DEBUG = True
 #         ## DEBUG = False
-#         if (cfg_prefix == None):
+#         if (cfg_prefix is None):
 #             print 'ERROR: The "cfg_prefix" argument is required.'
 #             return
-#         if (cfg_directory == None):
+#         if (cfg_directory is None):
 #             print 'ERROR: The "cfg_directory" argument is required.'
 #             return
 #         
@@ -1269,7 +1269,7 @@ class framework():
 #         # This must come after "repo" stuff, which also
 #         # changes the directory.
 #         #--------------------------------------------------        
-#         if (cfg_directory != None):
+#         if (cfg_directory is not None):
 #             os.chdir( cfg_directory )
 #         self.cfg_prefix    = cfg_prefix
 #         self.cfg_directory = cfg_directory
@@ -1425,10 +1425,10 @@ class framework():
         #-------------------
         DEBUG = True
         ## DEBUG = False
-        if (cfg_prefix == None):
+        if (cfg_prefix is None):
             print 'ERROR: The "cfg_prefix" argument is required.'
             return
-        if (cfg_directory == None):
+        if (cfg_directory is None):
             print 'ERROR: The "cfg_directory" argument is required.'
             return
         
@@ -2046,7 +2046,7 @@ class framework():
         # (3) Avoid all use of os.chdir() in EMELI.
         # (4) Use full pathnames to files everywhere.
         ################################################################
-#         if (self.cfg_directory != None):
+#         if (self.cfg_directory is not None):
 #             os.chdir( self.cfg_directory )
 
         #------------------------------------------------

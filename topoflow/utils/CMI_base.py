@@ -282,7 +282,7 @@ class CMI_component:
             str1 = "self.bmi." + short_names[k]   ############## (3/12/12)
             exec( str1 + " = " + str2 + str3 )
  
-            exec( "UNABLE = (" + str1 + " == None)" )
+            exec( "UNABLE = (" + str1 + " is None)" )
             if (UNABLE):
                 print 'FAILURE: Unable to cast CCA port: ' + name
                 exec( "d_services.releasePort( "  + name + " )")
@@ -494,7 +494,7 @@ class CMI_component:
 #         # Check data type and rank for input values.
 #         #---------------------------------------------
 #         val_dtype = str( values.dtype )
-#         val_rank  = numpy.rank( values )
+#         val_rank  = numpy.ndim( values )
 #         
 #         if (val_rank != rank):
 #             print '#############################################'

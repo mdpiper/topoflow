@@ -187,7 +187,7 @@ class evap_component( evap_base.evap_component ):
         #        If so, uncomment 2 lines below.
         #----------------------------------------------------------
         return 
-##        if (self.ET != None):
+##        if (self.ET is not None):
 ##            self.ET = np.maximum(self.ET, np.float64(0))
 
         ##########################################
@@ -249,7 +249,7 @@ class evap_component( evap_base.evap_component ):
         #-------------------------------------------------------
         ET = model_input.read_next(self.ET_unit, self.ET_type, rti,
                                    factor=self.mmph_to_mps)
-        if (ET != None):
+        if (ET is not None):
             self.ET = ET
             print 'min(ET) =', ET.min() * self.mps_to_mmph, ' [mmph]'
             print 'min(ET) =', ET.max() * self.mps_to_mmph, ' [mmph]'
@@ -300,7 +300,7 @@ def RTG_to_RTS( RTG_prefix, new_RTS_file,
     #--------------------------------
     # Try to get info from RTI file
     #--------------------------------
-    if (nx == None) and (ny == None):
+    if (nx is None) and (ny is None):
         RTG_file1 = RTG_list[0]
         RTI_file  = rti_files.try_to_find_rti_file( RTG_file1 )
         if (RTI_file != 'none'):

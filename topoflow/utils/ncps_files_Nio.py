@@ -348,7 +348,7 @@ class ncps_file():
         self.format     = 'ncps'
         self.file_name  = file_name
         self.time_index = 0
-        if (long_names[0] == None):
+        if (long_names[0] is None):
             long_names = var_names
         #-------------------------------------------            
         self.z_values  = z_values
@@ -490,7 +490,7 @@ class ncps_file():
         #-------------------------------------
         if (time_index == -1):
             time_index = self.time_index
-        if (time == None):
+        if (time is None):
             time = numpy.float64( time_index )
 
         #---------------------------------------------
@@ -563,7 +563,7 @@ class ncps_file():
         #-------------------------------------
         if (time_index == -1):
             time_index = self.time_index
-        if (time == None):
+        if (time is None):
             time = numpy.float64( time_index )
             
         #---------------------------------------------

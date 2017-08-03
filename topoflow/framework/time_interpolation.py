@@ -84,7 +84,7 @@ class time_interp_data():
         except:
             self.v1 = self.v2.copy()
         #-----------------------------------           
-##        if (np.rank( self.v1 ) > 0):
+##        if (np.ndim( self.v1 ) > 0):
 ##            self.v1[:] = self.v2.copy()
 ##        else:
 ##            self.v1 = self.v2.copy()
@@ -100,7 +100,7 @@ class time_interp_data():
         except:
             self.v2 = v2.copy()     ## NEED THIS!
         #-----------------------------------  
-##        if (np.rank( self.v2 ) > 0):
+##        if (np.ndim( self.v2 ) > 0):
 ##            self.v2[:] = v2
 ##        else:
 ##            self.v2 = v2
