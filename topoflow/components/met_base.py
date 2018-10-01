@@ -1807,7 +1807,7 @@ class met_component( BMI_base.BMI_component ):
         # NB! read_next() returns None if TYPE arg is "Scalar".
         #--------------------------------------------------------
         rho_H2O = model_input.read_next(self.rho_H2O_unit, self.rho_H2O_type, rti)
-        if (rho_H2O != None): self.rho_H2O = rho_H2O
+        if (rho_H2O is not None): self.rho_H2O = rho_H2O
 
         P = model_input.read_next(self.P_unit, self.P_type, rti,
                                   factor=self.mmph_to_mps)
